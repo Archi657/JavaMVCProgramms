@@ -6,7 +6,7 @@ class LolSettings:
     def __init__(self, summoner, region):
         self.summoner = summoner
         self.region = region
-        self.headers = {'X-Riot-Token': 'RGAPI-72621aa1-6376-4394-b024-b3958fefba47'}
+        self.headers = {'X-Riot-Token': 'api'}
 
     def start(self):
         url = f'https://la1.api.riotgames.com/lol/summoner/v4/summoners/by-name/{self.summoner}'
