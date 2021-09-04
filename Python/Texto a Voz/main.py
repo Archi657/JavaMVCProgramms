@@ -1,7 +1,7 @@
 from gtts import gTTS
 import os
 
-text = "andres carne de res jijijia"
+text = "a"
 
 language = 'es-us'
 

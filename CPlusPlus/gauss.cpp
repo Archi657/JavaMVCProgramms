@@ -55,21 +55,24 @@ int main(){
 		//convertir 1,1 en 1 pivote
 	if (a[1][1]!=1)
 	{
-		int aux= a[1][1];
+
 		for (int i = 0; i < 4; i++)
 		{
-			a[1][i]=a[1][i]/aux;
+			a[1][i]=a[1][i]*0.8;
 		}
 		
 	}
+	
+	
 	//convertir en 0 [2,1]
 	if(a[2][1]!=0){
 	    int aux=a[2][1];
 	    for (int i = 0; i < 4; i++)
 		{
-			a[2][i]=(a[0][i])*aux-(a[2][1]);
+			a[2][i]=(a[0][i])*aux-(a[2][i]);
 		}
 	}
+	
 	if (a[2][2]!=1)
 	{
 		int aux= a[2][2];
@@ -85,7 +88,7 @@ int main(){
 	{
 		for (int j = 0; j < 4; j++)
 		{
-			cout << a[i][j] << " " ;
+			cout << floor(a[i][j]) << " " ;
 		}
 		cout << endl;
 	}
