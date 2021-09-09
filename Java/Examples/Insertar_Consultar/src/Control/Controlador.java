@@ -30,6 +30,9 @@ public class Controlador implements ActionListener {
         }
         modelo = objetoModelo.consultar();
         objetoVista.getjTable1().setModel(modelo);
+        objetoModelo.contarciudades();
+        objetoVista.getTxtBogota().setText(String.valueOf(objetoModelo.getBogota()));
+        objetoVista.getTxtOtras().setText(String.valueOf(objetoModelo.getOtraciudad()));
     }
 
     @Override

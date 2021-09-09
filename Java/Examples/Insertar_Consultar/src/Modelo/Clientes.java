@@ -3,7 +3,6 @@
 package Modelo;
 
 import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
@@ -12,6 +11,8 @@ import javax.swing.table.DefaultTableModel;
 public class Clientes {
 
     String nit, empresa, direccion, telefono, ciudad;
+    int bogota,otraciudad;
+    
 
     public Clientes() {
     }
@@ -23,6 +24,24 @@ public class Clientes {
     public void setNit(String nit) {
         this.nit = nit;
     }
+
+    public int getBogota() {
+        return bogota;
+    }
+
+    public void setBogota(int bogota) {
+        this.bogota = bogota;
+    }
+
+    public int getOtraciudad() {
+        return otraciudad;
+    }
+
+    public void setOtraciudad(int otraciudad) {
+        this.otraciudad = otraciudad;
+    }
+    
+    
 
     public String getEmpresa() {
         return empresa;
@@ -81,7 +100,7 @@ public class Clientes {
 
         }
     }
-
+/*
     public DefaultTableModel consultar() {
         DefaultTableModel modelo = new DefaultTableModel();
         ConectarBD conexion = new ConectarBD();
@@ -100,6 +119,58 @@ public class Clientes {
                 Object[] fila = new Object[cantidadColumnas];
                 for (int i = 0; i < cantidadColumnas; i++) {
                     fila[i] = resultado.getObject(i + 1);
+                }
+                modelo.addRow(fila);
+            }
+            resultado.close();
+            conexion.getConexion().close();
+        } catch (Exception e) {
+
+            JOptionPane.showMessageDialog(null, "Error:" + e, "Informacion",
+                    JOptionPane.INFORMATION_MESSAGE);
+
+        }
+        return modelo;
+    }*/
+    public void contarciudades(){
+        ConectarBD conexion= new ConectarBD();
+        try{
+            Statement sentencia = conexion.getConexion().createStatement();
+            ResultSet resultado = sentencia.executeQuery("select * from clientes");
+            while(resultado.next()){
+                String registro="";
+                registro = resultado.getString("ciudad");
+                if (registro.equalsIgnoreCase("Bogotá")) {
+                    bogota+=1;
+                }else{
+                    otraciudad+=1;
+                }
+            }
+        resultado.close();;
+        conexion.getConexion().close();
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null,"Error:"+e,"Informacion",JOptionPane.INFORMATION_MESSAGE);
+        }
+    }
+    
+    public DefaultTableModel consultar() {
+        ConectarBD conexion = new ConectarBD();
+        String titulos[]={"Nit","Empresa","Direccion","Telefono","Ciudad"};
+        DefaultTableModel modelo = new DefaultTableModel(null,titulos);
+        int cantidadColumnas=5;
+        try {
+            Statement sentencia = conexion.getConexion().createStatement();
+            ResultSet resultado = sentencia.executeQuery("select * from clientes");
+            
+            while (resultado.next()) {
+                Object[] fila = new Object[cantidadColumnas];
+                for (int i = 0; i < cantidadColumnas; i++) {
+                    fila[0] = resultado.getString("nit");
+                    fila[1] = resultado.getString("empresa");
+                    fila[2] = resultado.getString("direccion");
+                    fila[3] = resultado.getString("telefono");
+                    fila[4] = resultado.getString("ciudad");
                 }
                 modelo.addRow(fila);
             }
