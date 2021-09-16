@@ -7,6 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class ConectarBD {
+    
 
     public Connection conexion;
     public PreparedStatement sentencia;
@@ -32,4 +33,6 @@ public class ConectarBD {
     public void setConexion(Connection conexion) {
         this.conexion = conexion;
     }
+
+    
 }
