@@ -3,10 +3,10 @@ package Model;
 
 public class Persona {
     String nombre;
-    Fecha fechanacimiento;
+    Fecha objFecha;
 
     public Persona() {
-        this.fechanacimiento = new Fecha();
+        objFecha = new Fecha();
     }
 
     public String getNombre() {
@@ -18,15 +18,12 @@ public class Persona {
     }
 
     public String getFechanacimiento() {
-        return fechanacimiento.toString();
+        return objFecha.toString();
     }
 
     public void setFechanacimiento(Fecha fechanacimiento) {
-        this.fechanacimiento.setDia(fechanacimiento.getDia());
-        this.fechanacimiento.setMes(fechanacimiento.getMes());
-        this.fechanacimiento.setAno(fechanacimiento.getAno());
-    }
-    
-    
-   
+        this.objFecha.setDia(fechanacimiento.getDia());
+        this.objFecha.setMes(fechanacimiento.getMes());
+        this.objFecha.setAno(fechanacimiento.getAno());
+    }   
 }

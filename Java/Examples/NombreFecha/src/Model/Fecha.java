@@ -5,7 +5,7 @@ public class Fecha {
     int dia;
     int mes;
     int ano;
-
+    public Fecha(){}
     public Fecha(int d, int m, int a) {
         this.dia = d;
         this.mes = m;
