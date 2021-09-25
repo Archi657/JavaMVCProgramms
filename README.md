@@ -4,5 +4,5 @@
   * OpenCV
 * Python 
   * Django
-* Java *
+* Java 
   * Spring
