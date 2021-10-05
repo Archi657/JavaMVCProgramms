@@ -66,7 +66,7 @@ public  class ImplementarDAOClientes implements DAOClientes {
     
     public DefaultTableModel consultar() {
         ConectarBD conexion = new ConectarBD();
-        String titulos[]={"Código","Descripcion","Origen","Destino","Tipo","Peso","Valor"};
+        String titulos[]={"Código","Destino","Origen","Destino","Tipo","Peso","Valor"};
         DefaultTableModel modelo = new DefaultTableModel(null,titulos);
         int cantidadColumnas=7;
         aereosval=0;

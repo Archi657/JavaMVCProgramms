@@ -16,7 +16,7 @@ public class ControladorCRUD implements ActionListener {
 
     String nit, empresa, direccion, telefono, ciudad;
     int filas;
-    String datos[] = new String[5];
+    String datos[] = new String[4];
 
     public ControladorCRUD() {
         objetoVista = new FormularioCRUD();
@@ -53,7 +53,11 @@ public class ControladorCRUD implements ActionListener {
             objetoClientes.setDestino(objetoVista.getTxtdestino().getText());
             objetoClientes.setTipo(objetoVista.getjComboBoxTipo().getSelectedItem().toString());
             objetoClientes.setPeso(Integer.parseInt(objetoVista.getTxtpeso().getText()));
-            objetoModelo.insertar(objetoClientes);    
+            objetoModelo.insertar(objetoClientes);
+        //    objetoVista.getTxtValorterrestres().setText(String.valueOf(objetoModelo.getTerrestresval()));
+        //    objetoVista.getTxtValorAereos().setText(String.valueOf(objetoModelo.getAereosval()));
+            
+            
             objetoVista.getTxtnit().setText("");
             objetoVista.getTxtorigen().setText("");
             objetoVista.getTxtdestino().setText("");
@@ -65,29 +69,14 @@ public class ControladorCRUD implements ActionListener {
         }
         if (e.getSource() == objetoVista.getBtnbuscar()) {
             String nit = objetoVista.getTxtnit().getText();
-           
             datos = objetoModelo.buscar(nit, datos);
-             if ("Caja".equals(datos[0])) {
-                objetoVista.getjComboBoxDescripcion().setSelectedIndex(1);
-            }
-            else if ("Paquete".equals(datos[0])) {
-               objetoVista.getjComboBoxDescripcion().setSelectedIndex(0);
-            }
-            else if ("Sobre".equals(datos[0])) {
-                objetoVista.getjComboBoxDescripcion().setSelectedIndex(2);
-            }
+            objetoVista.getjComboBoxDescripcion().setName(datos[0]);
             objetoVista.getTxtorigen().setText(datos[1]);
             objetoVista.getTxtdestino().setText(datos[2]);
-            
-            if ("Terrestre".equals(datos[3])) {
-                objetoVista.getjComboBoxTipo().setSelectedIndex(0);
-            }
-            else if("Aereo".equals(datos[3])) {
-               objetoVista.getjComboBoxTipo().setSelectedIndex(1);
-            }
- 
+           objetoVista.getjComboBoxTipo().setName(datos[3]);
            objetoVista.getTxtpeso().setText(datos[4]);
-
+      //     objetoVista.getTxtValorterrestres().setText(String.valueOf(objetoModelo.getTerrestresval()));
+       //     objetoVista.getTxtValorAereos().setText(String.valueOf(objetoModelo.getAereosval()));
           
         }
         if (e.getSource() == objetoVista.getBtnmodificar()) {
@@ -101,6 +90,8 @@ public class ControladorCRUD implements ActionListener {
             objetoModelo.modificar(objetoClientes);
            
             verregistros();
+    //        objetoVista.getTxtValorterrestres().setText(String.valueOf(objetoModelo.getTerrestresval()));
+      //      objetoVista.getTxtValorAereos().setText(String.valueOf(objetoModelo.getAereosval()));
         }
         if (e.getSource() == objetoVista.getBtneliminar()) {
             objetoClientes.setCodigo(Integer.parseInt(objetoVista.getTxtnit().getText()));
@@ -112,6 +103,8 @@ public class ControladorCRUD implements ActionListener {
             objetoVista.getTxtpeso().setText("");
             
             verregistros();
+       //     objetoVista.getTxtValorterrestres().setText(String.valueOf(objetoModelo.getTerrestresval()));
+         //   objetoVista.getTxtValorAereos().setText(String.valueOf(objetoModelo.getAereosval()));
         }
                 
     }
