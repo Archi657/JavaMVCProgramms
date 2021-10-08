@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Listado de contacto</title>
+    <title>{% block titulo %}Listado de contacto{% endblock titulo %}</title>
 </head>
 <body>
+    {% block cuerpo %}
     <h1>Template del listado</h1>
     <table border="2">
         <thead>
@@ -26,5 +27,6 @@
             {% endfor %}
         </tbody>
     </table>
+    {% endblock cuerpo %}
 </body>
 </html>
