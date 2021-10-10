@@ -15,9 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from principal.views import inicio
-
+from principal.views import crearPersona, inicio , editPersona, deletPersona
 urlpatterns = [
+    path('añadir/', crearPersona, name="crear" ),
     path('', inicio, name="index"),
     path('admin/', admin.site.urls),
+    path('edit/<int:id>/',editPersona,name = 'edit'),
+    path('delete/<int:id>/',deletPersona,name = 'delete'),
 ]

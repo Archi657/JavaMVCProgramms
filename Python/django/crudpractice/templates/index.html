@@ -23,6 +23,7 @@
                     <td>{{ i.nombre }}</td>
                     <td>{{ i.apellido }}</td>
                     <td>{{ i.email }}</td>
+                    <td><a href="{% url 'edit' i.id %}">Edit</a> <a href="{% url 'delete' i.id %}">Delete</a></td>
                 </tr>
             {% endfor %}
         </tbody>
