@@ -1,5 +1,0 @@
-Many times, we need to sort the content of a file for analysis. For example,
-we want to get the sentences written by different students to get arranged in
-the alphabetical order of their names. That will involve sorting just not by the first character of the
-line but also all the characters starting from the left. In the below program we first read the lines from a file
-then print them using the sort function which is part of the standard python library.

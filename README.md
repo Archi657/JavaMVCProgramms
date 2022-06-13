@@ -3,6 +3,6 @@
 * C++ 
   * OpenCV
 * Python 
-  * Django
+  * Natural language processing
 * Java 
-  * Spring
+  * MVC, BD, CRUD, DAO 

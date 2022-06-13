@@ -8,7 +8,7 @@ from textwrap3 import wrap
 from nltk.corpus import stopwords
 from nltk.corpus import wordnet
 from translate import  Translator
-from spellchecker import SpellChecker
+from spellchecker import SpellChecker #pyspellchecker
 from nltk.corpus import wordnet
 # import pprint for pprint.pprint(string,width=-1) ; pprint.pformat(text,indent=2)
 
@@ -129,9 +129,3 @@ def texttoAudio(): # from gtts import gTTS ; import os
 def captlize(): # import string
     text = "TEXT TO use as example"
     print(string.capwords(text)) # Text To Use As Example
-
-
-
-
-
-
