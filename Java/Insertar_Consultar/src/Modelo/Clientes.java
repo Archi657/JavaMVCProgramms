@@ -100,7 +100,7 @@ public class Clientes {
 
         }
     }
-/*
+
     public DefaultTableModel consultar() {
         DefaultTableModel modelo = new DefaultTableModel();
         ConectarBD conexion = new ConectarBD();
@@ -131,7 +131,7 @@ public class Clientes {
 
         }
         return modelo;
-    }*/
+    }
     public void contarciudades(){
         ConectarBD conexion= new ConectarBD();
         try{
@@ -166,7 +166,7 @@ public class Clientes {
             while (resultado.next()) {
                 Object[] fila = new Object[cantidadColumnas];
                 for (int i = 0; i < cantidadColumnas; i++) {
-                    fila[0] = resultado.getString("nit");
+                    fila[0] = resultado.getString("nit");dd
                     fila[1] = resultado.getString("empresa");
                     fila[2] = resultado.getString("direccion");
                     fila[3] = resultado.getString("telefono");
